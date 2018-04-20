@@ -1,0 +1,6 @@
+com/app/rquispe/ebook/configuration/WebConfig.class
+com/app/rquispe/ebook/authentication/AuthenticationController.class
+com/app/rquispe/ebook/authentication/domain/model/Role.class
+com/app/rquispe/ebook/Application.class
+com/app/rquispe/ebook/authentication/domain/model/User.class
+com/app/rquispe/ebook/configuration/WebSecurityConfig.class
