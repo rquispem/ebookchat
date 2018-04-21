@@ -23,9 +23,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
             .csrf().disable()
             .formLogin()
-                .loginProcessingUrl("/login")
-                .loginPage("/")
-                .defaultSuccessUrl("/chat")
+                .loginProcessingUrl("/login") //este es la url que llama el formulario, security lo intercepta
+                .loginPage("/") // esta es la pagina de login
+                .defaultSuccessUrl("/chat") // cuandp todo bien se va a /chat controller
                 .and()
             .logout()
                 .logoutSuccessUrl("/")
@@ -37,6 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 
+    @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
     }

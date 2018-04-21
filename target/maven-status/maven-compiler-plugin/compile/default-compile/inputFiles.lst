@@ -1,6 +1,10 @@
-/Users/rquispe/training/packt/ebookchat2/src/main/java/com/app/rquispe/ebook/authentication/AuthenticationController.java
-/Users/rquispe/training/packt/ebookchat2/src/main/java/com/app/rquispe/ebook/authentication/domain/model/Role.java
-/Users/rquispe/training/packt/ebookchat2/src/main/java/com/app/rquispe/ebook/authentication/domain/model/User.java
-/Users/rquispe/training/packt/ebookchat2/src/main/java/com/app/rquispe/ebook/configuration/WebConfig.java
-/Users/rquispe/training/packt/ebookchat2/src/main/java/com/app/rquispe/ebook/Application.java
-/Users/rquispe/training/packt/ebookchat2/src/main/java/com/app/rquispe/ebook/configuration/WebSecurityConfig.java
+/Users/ruben/Training/javaee/ebookchat/src/main/java/com/app/rquispe/ebook/authentication/domain/service/UserDetailsServiceImpl.java
+/Users/ruben/Training/javaee/ebookchat/src/main/java/com/app/rquispe/ebook/authentication/domain/repository/RoleRepository.java
+/Users/ruben/Training/javaee/ebookchat/src/main/java/com/app/rquispe/ebook/Application.java
+/Users/ruben/Training/javaee/ebookchat/src/main/java/com/app/rquispe/ebook/authentication/AuthenticationController.java
+/Users/ruben/Training/javaee/ebookchat/src/main/java/com/app/rquispe/ebook/authentication/domain/repository/UserRepository.java
+/Users/ruben/Training/javaee/ebookchat/src/main/java/com/app/rquispe/ebook/configuration/WebConfig.java
+/Users/ruben/Training/javaee/ebookchat/src/main/java/com/app/rquispe/ebook/configuration/WebSecurityConfig.java
+/Users/ruben/Training/javaee/ebookchat/src/main/java/com/app/rquispe/ebook/authentication/domain/model/User.java
+/Users/ruben/Training/javaee/ebookchat/src/main/java/com/app/rquispe/ebook/chat/api/ChatController.java
+/Users/ruben/Training/javaee/ebookchat/src/main/java/com/app/rquispe/ebook/authentication/domain/model/Role.java
