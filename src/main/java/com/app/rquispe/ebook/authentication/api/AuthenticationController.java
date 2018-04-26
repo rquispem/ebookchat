@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.validation.Valid;
 
 @Controller
-public class UserAuthController {
+public class AuthenticationController {
 
     @Autowired
     private UserService userService;
@@ -27,6 +27,11 @@ public class UserAuthController {
     @InitBinder
     protected void initBinder(WebDataBinder binder) {
         binder.addValidators(newUserValidator);
+    }
+
+    @RequestMapping("/")
+    public String login() {
+        return "login";
     }
 
     @RequestMapping("/new-account")
