@@ -19,6 +19,10 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
+
+  session:
+    store-type: redis
+
   thymeleaf:
     cache: false
 
@@ -29,5 +33,11 @@ spring:
     redis:
       repositories:
         enabled: true
+
+ebook:
+  chat:
+    relay:
+      host: localhost
+      port: 61613
 
 spring.flyway.enabled: true

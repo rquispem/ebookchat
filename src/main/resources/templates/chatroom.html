@@ -84,6 +84,77 @@
         </div>
     </div>
 
+    <script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/webjars/sockjs-client/1.1.2/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/2.3.4/lib/stomp.min.js"></script>
+    <script src="/webjars/noty/2.2.4/jquery.noty.packaged.min.js"></script>
+
+    <script th:inline="javascript">
+        $(document).ready(function() {
+            var stompClient = null;
+            var socket = null;
+            var chatRoomId = /*[[${chatRoom.id}]]*/;
+            var inputMessage = $("#message");
+            var btnSend = $("#send");
+            var btnDisconnect = $("#disconnect");
+            var newMessages = $("#newMessages");
+            var spanSendTo = $("#sendTo");
+            var btnPublic = $("#public");
+
+            function connect() {
+                socket = new SockJS('/ws');
+                stompClient = Stomp.over(socket);
+                stompClient.connect({'chatRoomId' : chatRoomId}, stompSuccess, stompFailure);
+            }
+
+            function stompSuccess(frame) {
+                enableInputMessage();
+                successMessage("Your WebSocket connection was successfuly established!")
+
+                stompClient.subscribe('/chatroom/connected.users', updateConnectedUsers);
+                stompClient.subscribe('/chatroom/old.messages', oldMessages);
+
+                stompClient.subscribe('/topic/' + chatRoomId + '.public.messages', publicMessages);
+                stompClient.subscribe('/user/queue/' + chatRoomId + '.private.messages', privateMessages);
+                stompClient.subscribe('/topic/' + chatRoomId + '.connected.users', updateConnectedUsers);
+            }
+
+            function stompFailure(error) {
+                errorMessage("Lost connection to WebSocket! Reconnecting in 10 seconds...");
+                disableInputMessage();
+                setTimeout(connect, 10000);
+            }
+
+            function enableInputMessage() {
+                inputMessage.prop("disabled", false);
+            }
+            function disableInputMessage() {
+                inputMessage.prop("disabled", true);
+            }
+
+            function successMessage(msg){
+                noty({
+                    text: msg,
+                    layout: 'top',
+                    type: 'success',
+                    timeout: 5000
+                });
+            }
+
+            function errorMessage(msg){
+                noty({
+                    text: msg,
+                    layout: 'top',
+                    type: 'error',
+                    timeout: 5000
+                });
+            }
+
+            connect();
+        });
+
+    </script>
 
 
 </body>
