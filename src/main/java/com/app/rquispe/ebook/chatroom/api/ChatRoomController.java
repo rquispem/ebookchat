@@ -7,6 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.security.Principal;
 
 @Controller
 public class ChatRoomController {
@@ -31,5 +34,12 @@ public class ChatRoomController {
     @ResponseStatus(code = HttpStatus.CREATED)
     public ChatRoom createChatRoom(@RequestBody ChatRoom chatRoom) {
         return chatRoomService.save(chatRoom);
+    }
+
+    @RequestMapping("/chatroom/{chatRoomId}")
+    public ModelAndView join(@PathVariable String chatRoomId, Principal principal) {
+        ModelAndView modelAndView = new ModelAndView("chatroom");
+        modelAndView.addObject("chatRoom", chatRoomService.findById(chatRoomId));
+        return modelAndView;
     }
 }

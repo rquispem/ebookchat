@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/ebook-chat2.iml" filepath="$PROJECT_DIR$/ebook-chat2.iml" />
       <module fileurl="file://$PROJECT_DIR$/ebookchat2.iml" filepath="$PROJECT_DIR$/ebookchat2.iml" />
     </modules>
   </component>
